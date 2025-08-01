@@ -20,7 +20,7 @@ function createGrid() {
             const square = document.createElement("div");
             square.classList.add("square");
             square.addEventListener("mouseover", function(e) {
-                square.style.backgroundColor = "mediumaquamarine";
+                square.style.backgroundColor = getRandomColor();
             });
             column.appendChild(square);
         }
@@ -31,4 +31,13 @@ function checkGrid() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
+}
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }
